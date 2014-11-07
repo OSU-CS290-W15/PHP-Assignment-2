@@ -27,3 +27,41 @@ The interface should have the following pieces:
       - When clicked, it should adjust the price of all products in that category by multiplying the product price with the percentage.
   - There should be a button labeled "Delete All Products". This is mainly to facilitate testing. When clicked, all products in the table should be deleted.
       
+Rough Testing Protocol
+----------------------
+- Locate and click the "Delete All Products" button.
+- All products should have been removed.
+- Locate the form to alter the price of a category.
+  - Is the category form empty?
+- Locate the portion of the interface that is used for adding products.
+  - Does there exist clearly marked fields to enter the name, category and price?
+  - Is there a button to add a product?
+  - Input 'foo' in the category field, input 1.00 in the price field.
+  - Click the add product button.
+    - Are you notified that name is a required field?
+    - Was a product added? (A new item should not have been added)
+  - Input 'Apple' into the name field and 'bar' into the price field and attempt to add the product
+    - Are you notified that the price must be a number?
+    - Was a product added? (It should not have been)
+  - Input 'Banana' into the name field, 'Fruit' into the category field and 2.00 into the price field and attempt to add the product
+    - Was a 'Banana' added with a category of 'Fruit' and a price of 2.00?
+    - Does the category menu now list 'Fruit' as a category?
+  - Input 'Apple' into the name field, 'Fruit' into the category field and 1.00 into the price field and attempt to add the product 
+    - Was a 'Apple' added with a category of fruit and a price of 1.00?
+    - Does the category menu still only list a single entry for fruit?
+  - Input 'Frosted Flakes' into the name field, 'Breakfast' into the category field and 5.50 into the price field.
+    - Was 'Frosted Flakes' added with a category of 'Breakfast' and a price of 5.50?
+    - Is 'Breakfast' now listed in the category menu?
+- Locate the form to alter the price of a category.
+  - Enter 200% into the field.
+  - Select the fruit category.
+  - Click the 'Alter Price' button.
+    - Is the price of a Banana now 4.00 and an apple 2.00?
+    - Is the price of 'Frosted Flakes' still 5.50?
+- Does each entry in the table have a 'delete' button?
+- Click the delete button for the Banana.
+  - Was the Banana entry deleted?
+  - Did all other entries remain the same?
+- Close the browser.
+- Reopen the browser and navigate back to the page.
+  - Are the Apple and Frosted Flakes still listed?
