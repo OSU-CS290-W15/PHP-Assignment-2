@@ -49,15 +49,18 @@ Rough Testing Protocol
   - Input 'Apple' into the name field, 'Fruit' into the category field and 1.00 into the price field and attempt to add the product 
     - Was a 'Apple' added with a category of fruit and a price of 1.00?
     - Does the category menu still only list a single entry for fruit?
-  - Input 'Frosted Flakes' into the name field, 'Breakfast' into the category field and 5.50 into the price field.
+  - Input 'Frosted Flakes' into the name field, 'Breakfast' into the category field and 5.50 into the price field and add the product.
     - Was 'Frosted Flakes' added with a category of 'Breakfast' and a price of 5.50?
     - Is 'Breakfast' now listed in the category menu?
+  - Input 'Surplus Boxes' into the name field, leave the category field blank and put '10.00' into the price field and add the prodcut.
+    - Was 'Surplus Boxes' added with no category and a price of 10.00?
 - Locate the form to alter the price of a category.
   - Enter 200% into the field.
   - Select the fruit category.
   - Click the 'Alter Price' button.
     - Is the price of a Banana now 4.00 and an apple 2.00?
     - Is the price of 'Frosted Flakes' still 5.50?
+    - Is the price of 'Surplus Boxes' still 10?
 - Does each entry in the table have a 'delete' button?
 - Click the delete button for the Banana.
   - Was the Banana entry deleted?
