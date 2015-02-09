@@ -4,67 +4,70 @@ In this assignment you will make a simple interface to work with a database.
 
 Database Requirements
 ---------------------
-The database will be a single table database that tracks a grocery store's inventory. It will have the following attributes:
-  - id - an auto incrementing integer which is the primary key/
-  - name - the name of the product, this should be a variable length string with a maximum length of 255 characters. This is a required field and must be unique.
-  - category - the category the product belongs to (fruit, cereal, dairy etc), this should be a variable length string with a maximum length of 255 characters.
-  - price - the amount charged, this should be a decimal with a maximum value of $999.99. This is a required field.
+The database will be a single table database that tracks a video store's inventory of videos. It will have the following attributes:
+  - id - an auto incrementing integer which is the primary key of each video.
+  - name - the name of the video, this should be a variable length string with a maximum length of 255 characters. This is a required field and must be unique.
+  - category - the category the video belongs to (action, comedy, drama etc), this should be a variable length string with a maximum length of 255 characters.
+  - length - the length of the movie in minutes, recorded as a positive integer.
+  - rented - this is a boolean value indicating if the video is checked in or not. It is a required field. When added it should default to checked in.
 
 Interface Requirements
 ----------------------
 The interface should have the following pieces:
-  - Add product
-    - There should be text fields for the name, category and price.
-    - There should be a button for adding a product
-      - When the button is clicked it should attempt to add the product to the list of products. If there are any invalid values it should say what value was invalid in user readable language. It should not output the standard MySQL or PHP error message.
-  - There should be a table of products that list the name, category and price
-    - Each row should have a "Delete" button
-      - When clicked, this should delete that product from the table.
-  - There should be a form to alter the price of a category
-    - This should have a drop down of all categories currently existing in the products table
-    - It should have a field to enter a percent
-    - It should have a button labeled "Alter prices"
-      - When clicked, it should adjust the price of all products in that category by multiplying the product price with the percentage.
-  - There should be a button labeled "Delete All Products". This is mainly to facilitate testing. When clicked, all products in the table should be deleted.
+  - Add video
+    - There should be text fields for the name, category and length.
+    - There should be a button for adding a video
+      - When the button is clicked it should attempt to add the video to the list of videos. If there are any invalid values it should say what value was invalid in user readable language. It should not output the standard MySQL or PHP error message.
+  - There should be a table of videos that list the name, category, length and the words "checked out" or "available".
+    - Each row should have a "Delete" button.
+      - When clicked, this should delete that video from the table.
+  - Each video should have a button to check-in/check-out a video. It should toggle the status from "checked out" to "available" and back.
+  - There should be a button labeled "Delete All Videos". This is mainly to facilitate testing. When clicked, all videos in the table should be deleted.
+  - There should be a drop down menu that shows the categories of movies currently in the database and a category for 'All Movies' with a button next to it to filter out all movies not of the selected category.
+    - Categories should only show up once even if there are several different movies in the category. For example if there are 3 comedies, the "Comedy" category should only show up once in the menu.
       
 Rough Testing Protocol
 ----------------------
-- Locate and click the "Delete All Products" button.
+- Locate and click the "Delete All Videos" button.
 - All products should have been removed.
-- Locate the form to alter the price of a category.
-  - Is the category form empty?
-- Locate the portion of the interface that is used for adding products.
-  - Does there exist clearly marked fields to enter the name, category and price?
-  - Is there a button to add a product?
-  - Input 'foo' in the category field, input 1.00 in the price field.
-  - Click the add product button.
+- The category menu should be empty and the table should be empty.
+- Locate the portion of the interface that is used for adding videos.
+  - Does there exist clearly marked fields to enter the name, category and length?
+  - Is there a button to add a video?
+  - Input 'foo' in the category field, input 100 in the length field.
+  - Click the add video button.
     - Are you notified that name is a required field?
     - Was a product added? (A new item should not have been added)
-  - Input 'Apple' into the name field and 'bar' into the price field and attempt to add the product
+  - Input 'Die Hard' into the name field and 'bar' into the length field and attempt to add the product
     - Are you notified that the price must be a number?
-    - Was a product added? (It should not have been)
-  - Input 'Banana' into the name field, 'Fruit' into the category field and 2.00 into the price field and attempt to add the product
-    - Was a 'Banana' added with a category of 'Fruit' and a price of 2.00?
-    - Does the category menu now list 'Fruit' as a category?
-  - Input 'Apple' into the name field, 'Fruit' into the category field and 1.00 into the price field and attempt to add the product 
-    - Was a 'Apple' added with a category of fruit and a price of 1.00?
-    - Does the category menu still only list a single entry for fruit?
-  - Input 'Frosted Flakes' into the name field, 'Breakfast' into the category field and 5.50 into the price field and add the product.
-    - Was 'Frosted Flakes' added with a category of 'Breakfast' and a price of 5.50?
-    - Is 'Breakfast' now listed in the category menu?
-  - Input 'Surplus Boxes' into the name field, leave the category field blank and put '10.00' into the price field and add the prodcut.
-    - Was 'Surplus Boxes' added with no category and a price of 10.00?
-- Locate the form to alter the price of a category.
-  - Enter 200% into the field.
-  - Select the fruit category.
-  - Click the 'Alter Price' button.
-    - Is the price of a Banana now 4.00 and an apple 2.00?
-    - Is the price of 'Frosted Flakes' still 5.50?
-    - Is the price of 'Surplus Boxes' still 10?
-- Does each entry in the table have a 'delete' button?
-- Click the delete button for the Banana.
-  - Was the Banana entry deleted?
-  - Did all other entries remain the same?
+    - Was a product added? (It should not have been, simply not allow the user to submit the form is OK too)
+  - Input 'Caddy Shack' into the name field, 'Comedy' into the category field and 90 into the length field and attempt to add the product.
+    - Was 'Caddy Shack' added with a category of 'Comedy' and length of 90?
+    - Does the category menu now list 'Comedy' as a category?
+  - Input 'Parks and Recreation' into the name field, 'Comedy' into the category field and 30 into the length field and attempt to add the product.
+    - Was a 'Parks and Recreation' added with a category of 'Comedy' and a price of 1.00?
+    - Does the category menu still only list a single entry for comedy?
+  - Input 'Die Hard' into the name field, 'Action' into the category field and 100 into the length field and add the video.
+    - Was 'Die Hard' added with a category of 'Action' and a length of 100?
+    - Is 'Action' now listed in the category menu?
+  - Input 'Impossible Movie' into the name field, leave the category field blank and put '-10' into the length field.
+    - Was the addition rejected due to the negative length?
+    - Was a human readable error message displayed indicating length must be positive?
+- Add the video 'Toy Story' without a category.
+  - Was it added without a length or category? (It should have been)
+  - Does a blank row now show up in the category menu? (It should not)
+- Click the button to delete 'Toy Story'
+  - Was Toy Story deleted from the table?
+- Click the button to check out 'Die Hard'.
+  - Was it updated to be checked out?
+- Click the button again
+  - Was it updated to be cheeked in.
+- Select comedy from the category table and filter to display only comedies
+  - Are only the two comedy titles displayed?
+- Select all categories and filter
+  - Are all the movies displayed again?
 - Close the browser.
 - Reopen the browser and navigate back to the page.
-  - Are the Apple and Frosted Flakes still listed?
+  - Are all the movies still listed?
+- Click the delete all videos button
+  - Were all videos deleted?
