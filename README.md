@@ -72,7 +72,7 @@ Rough Testing Protocol
 - Click the delete all videos button
   - Were all videos deleted?
 
-  Work Log
+Work Log
 --------
 In order to be eligible to receive an A you must submit a work log. It will not contribute points directly to the assignment, but without it the maximum grade you will be eligible for is an 89%. The purpose is to allow me to tune the difficulty of assignments to ensure that you are getting the amount of practice needed without spending too much time on any given topic.
 
