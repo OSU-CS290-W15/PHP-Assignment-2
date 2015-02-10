@@ -39,13 +39,13 @@ Rough Testing Protocol
     - Are you notified that name is a required field?
     - Was a product added? (A new item should not have been added)
   - Input 'Die Hard' into the name field and 'bar' into the length field and attempt to add the product
-    - Are you notified that the price must be a number?
+    - Are you notified that the length must be a number?
     - Was a product added? (It should not have been, simply not allow the user to submit the form is OK too)
   - Input 'Caddy Shack' into the name field, 'Comedy' into the category field and 90 into the length field and attempt to add the product.
     - Was 'Caddy Shack' added with a category of 'Comedy' and length of 90?
     - Does the category menu now list 'Comedy' as a category?
   - Input 'Parks and Recreation' into the name field, 'Comedy' into the category field and 30 into the length field and attempt to add the product.
-    - Was a 'Parks and Recreation' added with a category of 'Comedy' and a price of 1.00?
+    - Was a 'Parks and Recreation' added with a category of 'Comedy' and a length of 30?
     - Does the category menu still only list a single entry for comedy?
   - Input 'Die Hard' into the name field, 'Action' into the category field and 100 into the length field and add the video.
     - Was 'Die Hard' added with a category of 'Action' and a length of 100?
